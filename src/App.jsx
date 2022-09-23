@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Form } from "./components/Form";
 import { List } from "./components/List";
+import { Total } from "./components/Total";
 
 const App = () => {
   const [listTransactions, setListTransactions] = useState([]);
@@ -21,6 +22,7 @@ const App = () => {
         setlistTransactions={setListTransactions}
         addTransactions={addTransactions}
       />
+      <Total listTransactions={listTransactions} />
       <List
         listTransactions={listTransactions}
         setListTransactions={setListTransactions}

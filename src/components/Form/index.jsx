@@ -11,7 +11,7 @@ export const Form = ({ addTransactions }) => {
     const newTransaction = {
       description: description,
       type: typeValue,
-      value: value,
+      value: typeValue === "entrada" ? Number(value) : Number(value * -1),
     };
     addTransactions(newTransaction);
   }
