@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Form } from "./components/Form";
+import { List } from "./components/List";
 
 const App = () => {
   const [listTransactions, setListTransactions] = useState([]);
@@ -8,7 +9,7 @@ const App = () => {
   function addTransactions(newTransaction) {
     setListTransactions([...listTransactions, newTransaction]);
   }
-  console.log(listTransactions);
+
   return (
     <div className="App">
       <header>
@@ -19,6 +20,10 @@ const App = () => {
         listTransactions={listTransactions}
         setlistTransactions={setListTransactions}
         addTransactions={addTransactions}
+      />
+      <List
+        listTransactions={listTransactions}
+        setListTransactions={setListTransactions}
       />
     </div>
   );
