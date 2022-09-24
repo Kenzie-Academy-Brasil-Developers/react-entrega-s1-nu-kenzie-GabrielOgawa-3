@@ -1,10 +1,16 @@
+import "./index.css";
+
 export const Filters = ({ entry, expenses, all }) => {
   return (
-    <div>
+    <div className="containerFinance">
       <h2>Resumo financeiro</h2>
-      <button onClick={all}>Todos</button>
-      <button onClick={entry}>Entradas</button>
-      <button onClick={expenses}>Despesas</button>
+      <div className="containerBtns">
+        <button onClick={all} id="btnTarget">
+          Todos
+        </button>
+        <button onClick={entry}>Entradas</button>
+        <button onClick={expenses}>Despesas</button>
+      </div>
     </div>
   );
 };

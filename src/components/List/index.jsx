@@ -1,8 +1,9 @@
+import "./index.css";
 import { Card } from "../Card";
 
 export const List = ({ listTransactions, setListTransactions }) => {
   return (
-    <ul>
+    <ul className="ulTransactions">
       {listTransactions.map((transaction, index) => (
         <Card
           transaction={transaction}

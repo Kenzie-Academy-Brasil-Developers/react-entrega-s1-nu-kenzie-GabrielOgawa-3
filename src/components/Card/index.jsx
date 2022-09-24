@@ -1,3 +1,6 @@
+import { IoMdTrash } from "react-icons/io";
+import "./index.css";
+
 export const Card = ({
   transaction,
   listTransactions,
@@ -10,12 +13,14 @@ export const Card = ({
     setListTransactions(FilteredListTransactions);
   }
   return (
-    <li>
-      <h2>{transaction.description}</h2>
-      <span>{transaction.type}</span>
-      <span>{transaction.value}</span>
+    <li id={transaction.type}>
+      <div>
+        <h2>{transaction.description}</h2>
+        <p>{transaction.type}</p>
+      </div>
+      <p>{`R$ ${transaction.value},00`}</p>
       <button type="button" onClick={() => handleTransaction(transaction)}>
-        X
+        <IoMdTrash />
       </button>
     </li>
   );

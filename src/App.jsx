@@ -17,13 +17,13 @@ const App = () => {
   }
   function entry() {
     const newList = listTransactions.filter(
-      (transaction) => transaction.type === "entrada"
+      (transaction) => transaction.type === "Entrada"
     );
     setFilteredList(newList);
   }
   function expenses() {
     const newList = listTransactions.filter(
-      (transaction) => transaction.type === "saida"
+      (transaction) => transaction.type === "Despesa"
     );
     setFilteredList(newList);
   }
@@ -51,10 +51,12 @@ const App = () => {
                 addTransactions={addTransactions}
               />
 
-              <Total listTransactions={listTransactions} />
+              {listTransactions.length && (
+                <Total listTransactions={listTransactions} />
+              )}
             </div>
 
-            <div>
+            <div className="containerTransactions">
               <Filters entry={entry} expenses={expenses} all={all} />
 
               {!filteredlist.length && (

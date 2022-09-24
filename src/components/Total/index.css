@@ -1,0 +1,28 @@
+.containerTotal {
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.containerTotal div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.containerTotal div p {
+  color: var(--grey4);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+#price {
+  color: var(--colorPrimary);
+}
+
+.containerTotal span {
+  color: var(--grey3);
+  font-weight: 400;
+  font-size: 12px;
+}

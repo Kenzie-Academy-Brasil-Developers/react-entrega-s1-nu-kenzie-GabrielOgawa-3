@@ -12,9 +12,13 @@ export const Form = ({ addTransactions }) => {
     const newTransaction = {
       description: description,
       type: typeValue,
-      value: typeValue === "entrada" ? Number(value) : Number(value * -1),
+      value: typeValue === "Entrada" ? Number(value) : Number(value * -1),
     };
     addTransactions(newTransaction);
+
+    setDescription("");
+    setValue("");
+    setTypeValue("entrada/saida");
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -23,6 +27,7 @@ export const Form = ({ addTransactions }) => {
         type="text"
         name="description"
         placeholder="Digite aqui sua descrição"
+        value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
       <span>Ex: Compra de roupas</span>
@@ -34,6 +39,7 @@ export const Form = ({ addTransactions }) => {
             type="number"
             name="value"
             placeholder="R$"
+            value={value}
             onChange={(event) => setValue(event.target.value)}
           />
         </div>
@@ -43,11 +49,12 @@ export const Form = ({ addTransactions }) => {
           <select
             name="typeValue"
             id="typeValue"
+            value={typeValue}
             onChange={(event) => setTypeValue(event.target.value)}
           >
             <option value="entrada/saida">Entrada/Saida</option>
-            <option value="entrada">Entrada</option>
-            <option value="saida">Saida</option>
+            <option value="Entrada">Entrada</option>
+            <option value="Despesa">Despesa</option>
           </select>
         </div>
       </div>

@@ -1,0 +1,63 @@
+.ulTransactions li {
+  width: 100%;
+  text-align: start;
+  background-color: var(--grey2);
+  padding: 10px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.ulTransactions li:hover {
+  background-color: var(--grey1);
+}
+
+.ulTransactions li h2 {
+  color: var(--grey4);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.ulTransactions li p {
+  color: var(--grey4);
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.ulTransactions li button {
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  cursor: pointer;
+  width: 22px;
+  height: 24px;
+  background-color: var(--grey1);
+  border-radius: 2.46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ulTransactions li button:hover {
+  background-color: var(--grey4);
+  color: var(--grey1);
+}
+
+#Entrada {
+  border-left: 4px solid var(--colorSecundary);
+  border-radius: 4px 0 0 4px;
+}
+
+#Despesa {
+  border-left: 4px solid var(--grey3);
+  border-radius: 4px 0 0 4px;
+}
+
+@media (min-width: 1024px) {
+  .ulTransactions li {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ulTransactions li p {
+    margin-right: 60px;
+  }
+}
