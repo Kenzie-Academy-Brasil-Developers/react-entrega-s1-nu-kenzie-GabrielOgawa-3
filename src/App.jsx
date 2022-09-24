@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { EmpityList } from "./components/EmpityList";
 import { Filters } from "./components/Filters";
 import { Form } from "./components/Form";
 import { InicialPage } from "./components/InicialPage";
@@ -63,6 +64,8 @@ const App = () => {
               setListTransactions={setFilteredList}
             />
           )}
+
+          {!listTransactions.length && <EmpityList />}
         </div>
       )}
     </div>
