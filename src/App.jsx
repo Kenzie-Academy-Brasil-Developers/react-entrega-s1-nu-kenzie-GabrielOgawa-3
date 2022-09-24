@@ -2,12 +2,14 @@ import { useState } from "react";
 import "./App.css";
 import { Filters } from "./components/Filters";
 import { Form } from "./components/Form";
+import { InicialPage } from "./components/InicialPage";
 import { List } from "./components/List";
 import { Total } from "./components/Total";
 
 const App = () => {
   const [listTransactions, setListTransactions] = useState([]);
   const [filteredlist, setFilteredList] = useState([]);
+  const [isLogin, setIsLogin] = useState(false);
 
   function addTransactions(newTransaction) {
     setListTransactions([...listTransactions, newTransaction]);
@@ -30,32 +32,38 @@ const App = () => {
 
   return (
     <div className="App">
-      <header>
-        <img src="../assets/nukenzie.png" alt="Logo NuKenzie" />
-        <button>Inicio</button>
-      </header>
+      {!isLogin ? (
+        <InicialPage setIsLogin={setIsLogin} />
+      ) : (
+        <div>
+          <header>
+            <img src="../assets/nukenzie.png" alt="Logo NuKenzie" />
+            <button onClick={() => setIsLogin(false)}>Inicio</button>
+          </header>
 
-      <Form
-        listTransactions={listTransactions}
-        setlistTransactions={setListTransactions}
-        addTransactions={addTransactions}
-      />
+          <Form
+            listTransactions={listTransactions}
+            setlistTransactions={setListTransactions}
+            addTransactions={addTransactions}
+          />
 
-      <Total listTransactions={listTransactions} />
+          <Total listTransactions={listTransactions} />
 
-      <Filters entry={entry} expenses={expenses} all={all} />
+          <Filters entry={entry} expenses={expenses} all={all} />
 
-      {!filteredlist.length && (
-        <List
-          listTransactions={listTransactions}
-          setListTransactions={setListTransactions}
-        />
-      )}
-      {filteredlist.length && (
-        <List
-          listTransactions={filteredlist}
-          setListTransactions={setFilteredList}
-        />
+          {!filteredlist.length && (
+            <List
+              listTransactions={listTransactions}
+              setListTransactions={setListTransactions}
+            />
+          )}
+          {filteredlist.length && (
+            <List
+              listTransactions={filteredlist}
+              setListTransactions={setFilteredList}
+            />
+          )}
+        </div>
       )}
     </div>
   );
