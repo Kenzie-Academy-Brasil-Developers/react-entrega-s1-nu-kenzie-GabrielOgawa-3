@@ -38,6 +38,10 @@ body {
   border: 2px solid var(--colorPrimary);
   border-radius: 8px;
   margin-top: 20px;
+  cursor: pointer;
+}
+.infoContainer button:hover {
+  background-color: var(--colorPrimary2);
 }
 
 @media (min-width: 768px) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./index.css";
 
 export const Form = ({ addTransactions }) => {
   const [description, setDescription] = useState("");
@@ -26,24 +27,30 @@ export const Form = ({ addTransactions }) => {
       />
       <span>Ex: Compra de roupas</span>
 
-      <label htmlFor="value">Valor</label>
-      <input
-        type="number"
-        name="value"
-        placeholder="R$"
-        onChange={(event) => setValue(event.target.value)}
-      />
+      <div>
+        <div>
+          <label htmlFor="value">Valor</label>
+          <input
+            type="number"
+            name="value"
+            placeholder="R$"
+            onChange={(event) => setValue(event.target.value)}
+          />
+        </div>
 
-      <label htmlFor="typeValue"></label>
-      <select
-        name="typeValue"
-        id="typeValue"
-        onChange={(event) => setTypeValue(event.target.value)}
-      >
-        <option value="entrada/saida">Entrada/Saida</option>
-        <option value="entrada">Entrada</option>
-        <option value="saida">Saida</option>
-      </select>
+        <div>
+          <label htmlFor="typeValue">Tipo de valor</label>
+          <select
+            name="typeValue"
+            id="typeValue"
+            onChange={(event) => setTypeValue(event.target.value)}
+          >
+            <option value="entrada/saida">Entrada/Saida</option>
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saida</option>
+          </select>
+        </div>
+      </div>
 
       <button type="submit">Inserir valor</button>
     </form>

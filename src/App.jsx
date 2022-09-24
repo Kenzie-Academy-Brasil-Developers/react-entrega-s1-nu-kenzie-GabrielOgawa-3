@@ -36,36 +36,42 @@ const App = () => {
       {!isLogin ? (
         <InicialPage setIsLogin={setIsLogin} />
       ) : (
-        <div>
+        <div className="containerHome">
           <header>
-            <img src="../assets/nukenzie.png" alt="Logo NuKenzie" />
-            <button onClick={() => setIsLogin(false)}>Inicio</button>
+            <div>
+              <img src="../assets/nukenzie.png" alt="Logo NuKenzie" />
+              <button onClick={() => setIsLogin(false)}>Inicio</button>
+            </div>
           </header>
+          <div>
+            <div>
+              <Form
+                listTransactions={listTransactions}
+                setlistTransactions={setListTransactions}
+                addTransactions={addTransactions}
+              />
 
-          <Form
-            listTransactions={listTransactions}
-            setlistTransactions={setListTransactions}
-            addTransactions={addTransactions}
-          />
+              <Total listTransactions={listTransactions} />
+            </div>
 
-          <Total listTransactions={listTransactions} />
+            <div>
+              <Filters entry={entry} expenses={expenses} all={all} />
 
-          <Filters entry={entry} expenses={expenses} all={all} />
-
-          {!filteredlist.length && (
-            <List
-              listTransactions={listTransactions}
-              setListTransactions={setListTransactions}
-            />
-          )}
-          {filteredlist.length && (
-            <List
-              listTransactions={filteredlist}
-              setListTransactions={setFilteredList}
-            />
-          )}
-
-          {!listTransactions.length && <EmpityList />}
+              {!filteredlist.length && (
+                <List
+                  listTransactions={listTransactions}
+                  setListTransactions={setListTransactions}
+                />
+              )}
+              {filteredlist.length && (
+                <List
+                  listTransactions={filteredlist}
+                  setListTransactions={setFilteredList}
+                />
+              )}
+              {!listTransactions.length && <EmpityList />}
+            </div>
+          </div>
         </div>
       )}
     </div>
