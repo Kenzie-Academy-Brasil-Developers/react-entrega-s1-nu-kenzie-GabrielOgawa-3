@@ -19,13 +19,24 @@ const App = () => {
     const newList = listTransactions.filter(
       (transaction) => transaction.type === "Entrada"
     );
-    setFilteredList(newList);
+
+    if (newList.length !== 0) {
+      setFilteredList(newList);
+    } else {
+      alert("Não possui entradas");
+    }
   }
+
   function expenses() {
     const newList = listTransactions.filter(
       (transaction) => transaction.type === "Despesa"
     );
-    setFilteredList(newList);
+
+    if (newList.length !== 0) {
+      setFilteredList(newList);
+    } else {
+      alert("Não possui despesas");
+    }
   }
   function all() {
     setFilteredList([]);
@@ -51,7 +62,7 @@ const App = () => {
                 addTransactions={addTransactions}
               />
 
-              {listTransactions.length && (
+              {!!listTransactions.length && (
                 <Total listTransactions={listTransactions} />
               )}
             </div>
@@ -65,7 +76,7 @@ const App = () => {
                   setListTransactions={setListTransactions}
                 />
               )}
-              {filteredlist.length && (
+              {!!filteredlist.length && (
                 <List
                   listTransactions={filteredlist}
                   setListTransactions={setFilteredList}

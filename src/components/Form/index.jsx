@@ -14,7 +14,16 @@ export const Form = ({ addTransactions }) => {
       type: typeValue,
       value: typeValue === "Entrada" ? Number(value) : Number(value * -1),
     };
-    addTransactions(newTransaction);
+
+    if (
+      newTransaction.description !== "" &&
+      newTransaction.type !== "entrada/saida" &&
+      newTransaction.value !== -0
+    ) {
+      addTransactions(newTransaction);
+    } else {
+      alert("Insira todos os dados necessários");
+    }
 
     setDescription("");
     setValue("");
